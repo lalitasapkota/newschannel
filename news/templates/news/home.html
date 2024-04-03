@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
+  {% load static %}
 <head>
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+     <link rel='stylesheet' type='text/css' media='screen' href='{% static 'style/style.css' %}'>
+
+  </head>
 <body>
     <div class="jumbotron">
-        <center><h1>DataFlair News Aggregator</h1>
+        <center><h1>News Aggregator</h1>
             <a href="{% url 'scrape' %}" class="btn btn-success">Get my morning news</a>
         </form>
     </center>
@@ -14,9 +17,9 @@
   <div class="card-columns" style="padding: 10px; margin: 20px;">
     {% for object in object_list %}
     <div class="card" style="width: 18rem;border:5px black solid;">
-   <img class="card-img-top" src = "{{ object.image }}"> 
+   <img class="card-img-top" src = ""> 
   <div class="card-body">
-    <h5 class="card-title">{{object.description}}<div class="card-body">
+    <h5 class="card-title">{{object.description|safe}}<div class="card-body">
       <a href="{{object.url}}"><h5 class="card-title">{{object.title}}</h5></a>
     </div></h5>
     </div>
