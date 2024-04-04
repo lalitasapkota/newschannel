@@ -18,8 +18,8 @@ def scrape(request):
     # url = "https://www.prasashan.com/feed/"
     urls = [
         "https://english.onlinekhabar.com/feed/",
-        "https://newspolar.com/feed/",
-        "https://www.prasashan.com/feed/",
+        "https://enewspolar.com/feed/",
+        "https://www.prasashan.com/category/english/",
     ]
     
 
@@ -64,3 +64,17 @@ def news_list(request):
 
 
 #     return render(request,'index.html',{'tokens_list':tokens_list})
+def index(request):
+    head=Headline.objects.first()
+    print(head)
+    context={'head':head}
+    return render(request,'news/index.html',context)
+
+def base(request):
+    return render(request,'news/base.html')
+
+def register(request):
+    return render(request,'news/register.html')
+
+def login(request):
+    return render(request,'news/login.html')

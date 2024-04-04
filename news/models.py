@@ -1,3 +1,4 @@
+
 from django.db import models
 class Headline(models.Model):
   title = models.CharField(max_length=200)
@@ -7,3 +8,5 @@ class Headline(models.Model):
 
   def __str__(self):
     return self.title
+  
+  
